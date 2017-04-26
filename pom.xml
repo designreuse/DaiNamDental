@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.datawings.app</groupId>
+  <artifactId>app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>APP</name>
+
+  <modules>
+	<module>app-core</module>
+    <module>app-web</module>
+  </modules>
+
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<spring.version>3.2.8.RELEASE</spring.version>
+	<security.version>3.2.3.RELEASE</security.version>
+	<jstl.version>1.2</jstl.version>
+	<apache.tiles.version>2.2.2</apache.tiles.version>
+	<postgresql.version>9.0-801.jdbc4</postgresql.version>
+	<org.slf4j.version>1.6.2</org.slf4j.version>
+	<org.slf4j.slf4j-log4j12.version>1.6.2</org.slf4j.slf4j-log4j12.version>
+	<org.slf4j.slf4j-api.version>1.6.2</org.slf4j.slf4j-api.version>
+	<log4j.log4j.version>1.2.16</log4j.log4j.version>
+	<commons-lang.version>2.6</commons-lang.version>
+	<commons-digester.version>2.1</commons-digester.version>
+	<commons-io.version>2.0.1</commons-io.version>
+	<javax.validation.version>1.0.0.GA</javax.validation.version>
+    <org.hibernate.validator.version>4.2.0.Final</org.hibernate.validator.version>
+	<org.hibernate.entitymanager.version>3.6.5.Final</org.hibernate.entitymanager.version>	
+	<commons-beanutils.version>1.8.3</commons-beanutils.version>
+	<javax.servlet-api.version>2.5</javax.servlet-api.version>
+	<javax.servlet.jsp.jsp-api.version>2.2</javax.servlet.jsp.jsp-api.version>
+	<displaytag.version>1.2</displaytag.version>
+	<displaytag.export.poi.version>1.1.1</displaytag.export.poi.version>
+	<jmesa.version>3.0.4</jmesa.version>
+	<javax.mail.version>1.4.4</javax.mail.version>
+  </properties>
+
+  <build>
+	<defaultGoal>install</defaultGoal>
+    <plugins>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<version>2.1.2</version>
+		<executions>
+		  <execution>
+			<id>attach-sources</id>
+			<goals>
+			  <goal>jar</goal>
+			</goals>
+		  </execution>
+		</executions>
+	  </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>false</downloadJavadocs>
+          <wtpversion>2.0</wtpversion>
+          <wtpapplicationxml>true</wtpapplicationxml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

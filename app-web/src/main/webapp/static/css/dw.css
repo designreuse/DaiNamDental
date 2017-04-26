@@ -1,0 +1,70 @@
+TABLE.bordercollapse
+{
+	border-collapse:collapse;
+}
+TABLE.bordercollapse TD
+{
+	font-size:11px;
+}
+TD.borderall
+{
+	border:1px solid #A6C9E2;
+}
+TD.borderleft
+{
+border-left:1px solid #A6C9E2;
+}
+TD.borderright
+{
+border-right:1px solid #A6C9E2;
+}
+TD.bordertop
+{
+border-top:1px solid #A6C9E2;
+}
+TD.borderbottom
+{
+border-left:0px;
+border-right:0px;
+border-top:0px;
+border-bottom:1px solid #A6C9E2;
+}
+TD.noborderright
+{
+border-right:0px;
+}
+TD.noborderleft
+{
+border-left:0px;
+}
+TD.noborderbottom
+{
+border-bottom:0px;
+}
+TD.nobordertop
+{
+border-top:0px;
+}
+TABLE.bordercollapse
+{
+	border-collapse:collapse;
+}
+TABLE.bordercollapse TD
+{
+	font-size:13px;
+}
+
+TABLE.noborder
+{
+	border-collapse:collapse;
+	border:none;
+}
+TABLE.borderalltd
+{
+	border-collapse:collapse;
+}
+TABLE.borderalltd TD
+{
+	border:1px solid #A6C9E2;
+	font-size:11px;
+}

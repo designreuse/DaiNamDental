@@ -1,0 +1,42 @@
+.open-filter {
+  display: block;
+  background: #1ab394;
+  text-align: center;
+  color: #fff;
+}
+.open-filter:hover {
+  color: white;
+  background: #1ab394;
+}
+
+.textfield {
+  border-radius:3px;
+}
+
+.ui-tooltip{
+	width: 320px;
+	position: absolute;
+}
+
+table.dataTable thead .nosortitem:after {
+  content: "\f0dc";
+  float: right;
+  font-family: fontawesome;
+}
+
+.cursorpointer{
+	cursor: pointer;
+}
+
+.display{
+	display: none;
+	width: 0 px;
+}
+
+.nav_select_col>ul>li>a
+{
+	color: #5D5F61
+}
+.btn-width {
+    min-width: 90px;
+}

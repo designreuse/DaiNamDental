@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:j2ee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.2.xsd
+			http://www.springframework.org/schema/jee
+			http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+  <global-method-security
+		secured-annotations="enabled" pre-post-annotations="enabled">
+		<expression-handler ref="webExpressionHandler" />
+	</global-method-security>
+	
+	<beans:bean id="webExpressionHandler"
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler">
+		<!-- <beans:property name="permissionEvaluator" ref="permissionEvaluator"/> -->
+		<beans:property name="roleHierarchy" ref="roleHierarchy" />
+	</beans:bean>
+	
+	<beans:bean id="methodExpressionHandler"
+		class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+		<beans:property name="roleHierarchy" ref="roleHierarchy" />
+	</beans:bean>
+	
+	<http pattern="/static/**" security="none" />
+	
+	<http use-expressions="true" create-session="ifRequired"
+	access-decision-manager-ref="accessDecisionManager">
+		<access-denied-handler error-page="/accessdenied"/>
+		<!-- Restrict URLs based on role -->
+		<intercept-url pattern="/login*" access="permitAll" />
+		<intercept-url pattern="/secure/dashboard" access="permitAll"/>
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		
+		<form-login login-page="/login" 
+			login-processing-url="/j_spring_security_check"
+			default-target-url="/secure/login/success" always-use-default-target="true"
+			authentication-failure-url="/loginFailed" 
+			username-parameter="username" password-parameter="password"/>
+		
+		<logout logout-url="/logout" 
+			logout-success-url="/login" delete-cookies="JSESSIONID"
+			invalidate-session="true" />		
+		<session-management invalid-session-url="/login"/>
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider ref="customAuthenticationProvider" />
+	</authentication-manager>
+	
+	<beans:bean id="customAuthenticationProvider"
+		class="com.datawings.app.auth.CustomAuthenticationProvider">
+		<beans:property name="sysUserService" ref="sysUserService" />
+	</beans:bean>
+		
+	<beans:bean id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+		<beans:constructor-arg>
+			<beans:list>
+				<beans:ref bean="roleVoter" />
+				<beans:bean
+					class="org.springframework.security.web.access.expression.WebExpressionVoter">
+					<beans:property name="expressionHandler" ref="webExpressionHandler" />
+				</beans:bean>
+				<beans:bean
+					class="org.springframework.security.access.vote.AuthenticatedVoter" />
+			</beans:list>
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<beans:bean id="roleVoter"
+		class="org.springframework.security.access.vote.RoleHierarchyVoter">
+		<beans:constructor-arg ref="roleHierarchy" />
+		<beans:property name="rolePrefix" value="" />
+	</beans:bean>
+	<beans:bean id="roleHierarchy"
+		class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+		<beans:property name="hierarchy">
+			<beans:value>
+				ROLE_DW > ROLE_ADMIN
+				ROLE_ADMIN > ROLE_USER	
+			</beans:value>
+		</beans:property>
+	</beans:bean>
+
+</beans:beans>

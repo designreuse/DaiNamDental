@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="login" template="/WEB-INF/jsp/login/login.jsp"></definition>
+	
+	<definition name="modelGeneral" template="/WEB-INF/jsp/tiles-layout/inspinia_template.jsp">
+		<put-attribute name="menu" value="/WEB-INF/jsp/component/inspinia/menu.jsp" type="template" />
+		<put-attribute name="banner" value="/WEB-INF/jsp/component/inspinia/banner.jsp" type="template" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/component/inspinia/footer.jsp" type="template" />
+		<put-attribute name="setting" value="/WEB-INF/jsp/component/inspinia/skin-config.jsp" type="template" />
+	</definition>
+	
+	<definition name="dashboard" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/dasboard.jsp" type="template" />
+	</definition>
+	
+	<definition name="dashboardLoadPage" template="/WEB-INF/jsp/jsp-body/dasboard_load_page.jsp"></definition>
+	
+	<definition name="branches" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/branches.jsp" type="template" />
+	</definition>
+	
+	<definition name="branchesEdit" template="/WEB-INF/jsp/jsp-body/branches_edit.jsp"></definition>
+	
+	<definition name="dentist" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/dentist.jsp" type="template" />
+	</definition>
+	
+	<definition name="dentistLoadPage" template="/WEB-INF/jsp/jsp-body/dentist_load_page.jsp"></definition>
+	
+	<definition name="dentistEdit" template="/WEB-INF/jsp/jsp-body/dentist_edit.jsp"></definition>
+	
+	<definition name="user" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/user.jsp" type="template" />
+	</definition>
+	
+	<definition name="userLoadPage" template="/WEB-INF/jsp/jsp-body/user_load_page.jsp"></definition>
+	
+	<definition name="userModel" template="/WEB-INF/jsp/jsp-body/user_edit.jsp"></definition>
+	
+	<definition name="customer" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/customer.jsp" type="template" />
+	</definition>
+	
+	<definition name="customerLoadPage" template="/WEB-INF/jsp/jsp-body/customer_load_page.jsp"></definition>
+	
+	<definition name="customerDetail" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/customer_detail.jsp" type="template" />
+	</definition>
+	
+	<definition name="customerReality" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/customer_reality.jsp" type="template" />
+	</definition>
+	
+	<definition name="customerRealityLoadPage" template="/WEB-INF/jsp/jsp-body/customer_reality_load_page.jsp"></definition>
+	
+	<definition name="records" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/records.jsp" type="template" />
+	</definition>
+	
+	<definition name="recordsEdit" template="/WEB-INF/jsp/jsp-body/records_edit.jsp"></definition>
+	
+	<definition name="schedule" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/schedule.jsp" type="template" />
+	</definition>
+	
+	<definition name="scheduleLoadPage" template="/WEB-INF/jsp/jsp-body/schedule_load_page.jsp"></definition>
+	
+	<definition name="invoice" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/invoice.jsp" type="template" />
+	</definition>
+	
+	<definition name="invoiceLoadPage" template="/WEB-INF/jsp/jsp-body/invoice_load_page.jsp"></definition>
+	
+	<definition name="invoicePdf" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/invoice_pdf.jsp" type="template" />
+	</definition>
+	
+	<definition name="invoiceDetail" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/invoice_detail.jsp" type="template" />
+	</definition>
+	
+	<definition name="invoiceEdit" template="/WEB-INF/jsp/jsp-body/invoice_edit.jsp"></definition>
+	
+	<definition name="bill" extends="modelGeneral">
+		<put-attribute name="body" value="/WEB-INF/jsp/jsp-body/bill.jsp" type="template" />
+	</definition>
+	
+	<definition name="billLoadPage" template="/WEB-INF/jsp/jsp-body/bill_load_page.jsp"></definition>
+	
+</tiles-definitions>
